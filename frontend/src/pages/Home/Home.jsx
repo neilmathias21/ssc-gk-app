@@ -1,11 +1,8 @@
 import "./Home.css";
 import DashboardCard from "../../components/DashboardCard/DashboardCard";
-import Navbar from "../../components/Navbar/Navbar";
 
 function Home() {
   return (
-    <>
-    <Navbar />
     <div className="home-container">
       <header className="home-header">
         <p>
@@ -56,7 +53,6 @@ function Home() {
         />
       </div>
     </div>
-    </>
   );
 }
 
