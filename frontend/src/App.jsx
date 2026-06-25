@@ -1,12 +1,7 @@
-import './App.css'
+import Home from "./pages/Home/Home";
 
 function App() {
-  return (
-    <div>
-      <h1>SSC GK Learning App</h1>
-      <p>Welcome! 🚀</p>
-    </div>
-  );
+  return <Home />;
 }
 
 export default App;
