@@ -1,11 +1,13 @@
 import "./Home.css";
 import DashboardCard from "../../components/DashboardCard/DashboardCard";
+import Navbar from "../../components/Navbar/Navbar";
 
 function Home() {
   return (
+    <>
+    <Navbar />
     <div className="home-container">
       <header className="home-header">
-        <h1>SSC GK Learning App</h1>
         <p>
           A personal learning platform for SSC, Railways, Banking, and other
           competitive examinations.
@@ -54,6 +56,7 @@ function Home() {
         />
       </div>
     </div>
+    </>
   );
 }
 
