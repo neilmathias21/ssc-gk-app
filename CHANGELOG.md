@@ -6,24 +6,28 @@ This project follows Semantic Versioning.
 
 ---
 
-# [0.1.0] - In Progress
+# [0.1.0] - 2026-06-25
 
 ## Added
 
 ### Project Setup
 
-* Created GitHub repository.
-* Initialized Git repository.
-* Added README.md.
-* Added PROJECT.md.
-* Added CHANGELOG.md.
-* Added .gitignore.
+- Initialized Git repository.
+- Created GitHub repository.
+- Added README.md.
+- Added PROJECT.md.
+- Added CHANGELOG.md.
+- Configured .gitignore.
 
 ### Frontend
 
-* Created React project using Vite.
-* Configured React with JavaScript.
-* Configured ESLint.
-* Created frontend project structure.
+- Created React project using Vite.
+- Configured ESLint.
+- Organized frontend folder structure.
+- Created reusable DashboardCard component.
+- Built Home page.
+- Added responsive dashboard.
+- Added navigation bar.
+- Applied initial application color theme.
 
 ---
