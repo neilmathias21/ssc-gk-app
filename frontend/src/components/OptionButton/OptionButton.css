@@ -1,0 +1,58 @@
+.option-button{
+
+    width:100%;
+
+    padding:15px;
+
+    text-align:left;
+
+    background:white;
+
+    border:1px solid #E5E7EB;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+}
+
+.option-button:hover{
+
+    background:#EFF6FF;
+
+    border-color:#2563EB;
+
+}
+
+.option-button.selected {
+
+    background:#DBEAFE;
+
+    border-color:#2563EB;
+
+    color:#1E3A8A;
+
+    font-weight:bold;
+
+}
+
+.option-button:disabled {
+  cursor: default;
+  opacity: 1;
+}
+
+.option-button.correct {
+  background-color: #DCFCE7;
+  border-color: #22C55E;
+  color: #166534;
+  font-weight: bold;
+}
+
+.option-button.wrong {
+  background-color: #FEE2E2;
+  border-color: #EF4444;
+  color: #991B1B;
+  font-weight: bold;
+}
