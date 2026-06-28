@@ -1,32 +1,34 @@
 import "./Practice.css";
-
-import { useState } from "react";
-
-import questions from "../../data/questions";
-
-import QuestionCard from "../../components/QuestionCard/QuestionCard";
+import DashboardCard from "../../components/DashboardCard/DashboardCard";
+import PageHeader from "../../components/PageHeader/PageHeader";
 
 function Practice() {
-  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-
-  function nextQuestion() {
-    if (currentQuestionIndex < questions.length - 1) {
-      setCurrentQuestionIndex(currentQuestionIndex + 1);
-    }
-  }
-
   return (
     <div className="practice-container">
-      <QuestionCard
-        key={questions[currentQuestionIndex].id}
-        question={questions[currentQuestionIndex]}
-        currentQuestion={currentQuestionIndex + 1}
-        totalQuestions={questions.length}
-        onNext={nextQuestion}
-        isLastQuestion={
-          currentQuestionIndex === questions.length - 1
-        }
+      <PageHeader
+        title="Practice"
+        subtitle="Select a practice mode."
       />
+
+      <div className="practice-grid">
+        <DashboardCard
+          title="Random Practice"
+          description="Practice randomly from all available questions."
+          route="/practice/random"
+        />
+
+        <DashboardCard
+          title="Subject-wise Practice"
+          description="Practice questions from a selected subject."
+          route="/practice/subject"
+        />
+
+        <DashboardCard
+          title="Chapter-wise Practice"
+          description="Practice questions from a selected chapter."
+          route="/practice/chapter"
+        />
+      </div>
     </div>
   );
 }

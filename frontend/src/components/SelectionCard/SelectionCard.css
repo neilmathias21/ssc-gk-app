@@ -1,0 +1,20 @@
+.selection-card {
+  background: white;
+  border: 1px solid #d9d9d9;
+  border-radius: 12px;
+  padding: 28px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.selection-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+}
+
+.selection-card h2 {
+  margin: 0;
+  font-size: 1.25rem;
+  color: #1f2937;
+}

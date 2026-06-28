@@ -1,0 +1,11 @@
+.chapter-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 40px 20px;
+}
+
+.chapter-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}

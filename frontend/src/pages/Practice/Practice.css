@@ -4,6 +4,8 @@
   padding: 40px 20px;
 }
 
-.practice-container h1 {
-  margin-bottom: 20px;
+.practice-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
 }

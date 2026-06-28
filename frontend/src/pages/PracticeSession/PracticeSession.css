@@ -1,0 +1,19 @@
+.practice-container {
+  max-width: 900px;
+  margin: auto;
+  padding: 40px 20px;
+}
+
+.practice-title {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.no-session {
+  text-align: center;
+  margin-top: 100px;
+}
+
+.no-session h2 {
+  margin-bottom: 20px;
+}

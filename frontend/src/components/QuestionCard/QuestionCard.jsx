@@ -1,7 +1,7 @@
 import "./QuestionCard.css";
 import { useState } from "react";
 
-import OptionButton from "../OptionButton/OptionButton";
+import OptionButton from "../OptionButton/OptionButton";;
 
 function QuestionCard({
   question,
