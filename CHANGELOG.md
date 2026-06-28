@@ -4,6 +4,37 @@ All notable changes to this project will be documented in this file.
 
 ---
 
+# Version 0.3.0 - Practice Mode Architecture
+
+## Added
+
+### Practice Navigation
+- Added dedicated Practice menu.
+- Added Random Practice page.
+- Added Subject-wise Practice page.
+- Added Chapter-wise Practice page.
+- Added Practice Session page.
+
+### Components
+- Added reusable PageHeader component.
+- Added reusable SelectionCard component.
+
+### Practice System
+- Implemented Fisher-Yates shuffle for random practice.
+- Added router state for passing practice session data.
+- Displayed practice session title.
+- Added friendly "No Practice Session" screen.
+
+### Data
+- Added subjects.js.
+- Added chapters.js.
+
+### Architecture
+- Improved routing structure for practice modes.
+- Decoupled Practice Session from the question data source.
+
+---
+
 # Version 0.2.0 - Interactive Practice Module
 
 ## Added
