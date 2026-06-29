@@ -9,9 +9,9 @@ import EmptyState from "../../components/EmptyState/EmptyState";
 function PracticeSession() {
   const location = useLocation();
 
-  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const practice = location.state?.practice ?? null;
 
-  const practice = location.state?.practice;
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
 
   if (!practice) {
     return (
@@ -33,25 +33,42 @@ function PracticeSession() {
     );
   }
 
-  const { title, questions } = practice;
+  const {
+    title,
+    questions,
+    questionLimit,
+  } = practice;
+
+  const sessionQuestions =
+    questionLimit >= questions.length
+      ? questions
+      : questions.slice(0, questionLimit);
 
   function nextQuestion() {
-    if (currentQuestionIndex < questions.length - 1) {
+    if (
+      currentQuestionIndex <
+      sessionQuestions.length - 1
+    ) {
       setCurrentQuestionIndex((previousIndex) => previousIndex + 1);
     }
   }
 
   return (
     <div className="practice-container">
-      <h1 className="practice-title">{title}</h1>
+      <h1 className="practice-title">
+        {title}
+      </h1>
 
       <QuestionCard
-        key={questions[currentQuestionIndex].id}
-        question={questions[currentQuestionIndex]}
+        key={sessionQuestions[currentQuestionIndex].id}
+        question={sessionQuestions[currentQuestionIndex]}
         currentQuestion={currentQuestionIndex + 1}
-        totalQuestions={questions.length}
+        totalQuestions={sessionQuestions.length}
         onNext={nextQuestion}
-        isLastQuestion={currentQuestionIndex === questions.length - 1}
+        isLastQuestion={
+          currentQuestionIndex ===
+          sessionQuestions.length - 1
+        }
       />
     </div>
   );

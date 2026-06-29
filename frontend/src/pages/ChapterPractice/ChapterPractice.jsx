@@ -8,6 +8,8 @@ import SelectionCard from "../../components/SelectionCard/SelectionCard";
 import chapters from "../../data/chapters";
 import questions from "../../data/questions";
 
+import defaultPracticeConfig from "../../data/defaultPracticeConfig";
+
 import filterQuestions from "../../utils/filterQuestions";
 
 function ChapterPractice() {
@@ -20,7 +22,7 @@ function ChapterPractice() {
     });
 
     if (filteredQuestions.length === 0) {
-      navigate("/practice/session", {
+      navigate("/practice/summary", {
         state: {
           practice: {
             empty: true,
@@ -34,15 +36,27 @@ function ChapterPractice() {
       return;
     }
 
-    navigate("/practice/session", {
+    const practiceConfig = {
+      ...defaultPracticeConfig,
+
+      title: `${chapter} Practice`,
+
+      mode: "Chapter",
+
+      subject,
+
+      chapter,
+
+      questions: filteredQuestions,
+
+      totalQuestions: filteredQuestions.length,
+
+      questionLimit: filteredQuestions.length,
+    };
+
+    navigate("/practice/summary", {
       state: {
-        practice: {
-          title: `${chapter} Practice`,
-          mode: "chapter",
-          subject,
-          chapter,
-          questions: filteredQuestions,
-        },
+        practice: practiceConfig,
       },
     });
   }

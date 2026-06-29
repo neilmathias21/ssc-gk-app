@@ -2,6 +2,8 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 import questions from "../../data/questions";
+import defaultPracticeConfig from "../../data/defaultPracticeConfig";
+
 import shuffleArray from "../../utils/shuffleArray";
 
 function RandomPractice() {
@@ -10,14 +12,27 @@ function RandomPractice() {
   useEffect(() => {
     const shuffledQuestions = shuffleArray(questions);
 
-    navigate("/practice/session", {
+    const practiceConfig = {
+      ...defaultPracticeConfig,
+
+      title: "Random Practice",
+
+      mode: "Random",
+
+      questions: shuffledQuestions,
+
+      totalQuestions: shuffledQuestions.length,
+
+      shuffle: true,
+
+      questionLimit: shuffledQuestions.length,
+    };
+
+    navigate("/practice/summary", {
       replace: true,
+
       state: {
-        practice: {
-          title: "Random Practice",
-          mode: "random",
-          questions: shuffledQuestions,
-        },
+        practice: practiceConfig,
       },
     });
   }, [navigate]);

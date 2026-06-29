@@ -8,21 +8,20 @@ import SelectionCard from "../../components/SelectionCard/SelectionCard";
 import subjects from "../../data/subjects";
 import questions from "../../data/questions";
 
+import defaultPracticeConfig from "../../data/defaultPracticeConfig";
+
 import filterQuestions from "../../utils/filterQuestions";
 
 function SubjectPractice() {
   const navigate = useNavigate();
 
   function handleSubjectClick(subject) {
-    const filteredQuestions = filterQuestions(
-      questions,
-      {
-        subject,
-      }
-    );
+    const filteredQuestions = filterQuestions(questions, {
+      subject,
+    });
 
     if (filteredQuestions.length === 0) {
-      navigate("/practice/session", {
+      navigate("/practice/summary", {
         state: {
           practice: {
             empty: true,
@@ -36,14 +35,25 @@ function SubjectPractice() {
       return;
     }
 
-    navigate("/practice/session", {
+    const practiceConfig = {
+      ...defaultPracticeConfig,
+
+      title: `${subject} Practice`,
+
+      mode: "Subject",
+
+      subject,
+
+      questions: filteredQuestions,
+
+      totalQuestions: filteredQuestions.length,
+
+      questionLimit: filteredQuestions.length,
+    };
+
+    navigate("/practice/summary", {
       state: {
-        practice: {
-          title: `${subject} Practice`,
-          mode: "subject",
-          subject,
-          questions: filteredQuestions,
-        },
+        practice: practiceConfig,
       },
     });
   }
@@ -60,9 +70,7 @@ function SubjectPractice() {
           <SelectionCard
             key={subject}
             title={subject}
-            onClick={() =>
-              handleSubjectClick(subject)
-            }
+            onClick={() => handleSubjectClick(subject)}
           />
         ))}
       </div>

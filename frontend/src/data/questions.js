@@ -77,6 +77,166 @@ const questions = [
     correctOption: 2,
     explanation:
       "The Reserve Bank of India issues currency notes except the ₹1 note."
+  },
+
+    {
+    id: 6,
+    subject: "History",
+    chapter: "Modern Indian History",
+    question: "Who founded the Maurya Empire?",
+    options: [
+      "Ashoka",
+      "Chandragupta Maurya",
+      "Bindusara",
+      "Bimbisara"
+    ],
+    correctOption: 1,
+    explanation:
+      "Chandragupta Maurya founded the Maurya Empire in 322 BCE."
+  },
+
+  {
+    id: 7,
+    subject: "Geography",
+    chapter: "Indian Geography",
+    question: "Which is the longest river in India?",
+    options: [
+      "Godavari",
+      "Yamuna",
+      "Ganga",
+      "Krishna"
+    ],
+    correctOption: 2,
+    explanation:
+      "The Ganga is the longest river in India."
+  },
+
+  {
+    id: 8,
+    subject: "Polity",
+    chapter: "Constitution Of India",
+    question: "Who is known as the Father of the Indian Constitution?",
+    options: [
+      "Mahatma Gandhi",
+      "Jawaharlal Nehru",
+      "Dr. B. R. Ambedkar",
+      "Sardar Patel"
+    ],
+    correctOption: 2,
+    explanation:
+      "Dr. B. R. Ambedkar was the Chairman of the Drafting Committee."
+  },
+
+  {
+    id: 9,
+    subject: "General Science",
+    chapter: "Physics",
+    question: "What is the SI unit of Force?",
+    options: [
+      "Joule",
+      "Pascal",
+      "Newton",
+      "Watt"
+    ],
+    correctOption: 2,
+    explanation:
+      "The SI unit of force is Newton."
+  },
+
+  {
+    id: 10,
+    subject: "Economy",
+    chapter: "Money, Banking, & Monetary Policy",
+    question: "Which institution issues currency notes in India?",
+    options: [
+      "SEBI",
+      "NABARD",
+      "Reserve Bank of India",
+      "Finance Ministry"
+    ],
+    correctOption: 2,
+    explanation:
+      "The Reserve Bank of India issues currency notes except the ₹1 note."
+  },
+
+    {
+    id: 11,
+    subject: "History",
+    chapter: "Modern Indian History",
+    question: "Who founded the Maurya Empire?",
+    options: [
+      "Ashoka",
+      "Chandragupta Maurya",
+      "Bindusara",
+      "Bimbisara"
+    ],
+    correctOption: 1,
+    explanation:
+      "Chandragupta Maurya founded the Maurya Empire in 322 BCE."
+  },
+
+  {
+    id: 12,
+    subject: "Geography",
+    chapter: "Indian Geography",
+    question: "Which is the longest river in India?",
+    options: [
+      "Godavari",
+      "Yamuna",
+      "Ganga",
+      "Krishna"
+    ],
+    correctOption: 2,
+    explanation:
+      "The Ganga is the longest river in India."
+  },
+
+  {
+    id: 13,
+    subject: "Polity",
+    chapter: "Constitution Of India",
+    question: "Who is known as the Father of the Indian Constitution?",
+    options: [
+      "Mahatma Gandhi",
+      "Jawaharlal Nehru",
+      "Dr. B. R. Ambedkar",
+      "Sardar Patel"
+    ],
+    correctOption: 2,
+    explanation:
+      "Dr. B. R. Ambedkar was the Chairman of the Drafting Committee."
+  },
+
+  {
+    id: 14,
+    subject: "General Science",
+    chapter: "Physics",
+    question: "What is the SI unit of Force?",
+    options: [
+      "Joule",
+      "Pascal",
+      "Newton",
+      "Watt"
+    ],
+    correctOption: 2,
+    explanation:
+      "The SI unit of force is Newton."
+  },
+
+  {
+    id: 15,
+    subject: "Economy",
+    chapter: "Money, Banking, & Monetary Policy",
+    question: "Which institution issues currency notes in India?",
+    options: [
+      "SEBI",
+      "NABARD",
+      "Reserve Bank of India",
+      "Finance Ministry"
+    ],
+    correctOption: 2,
+    explanation:
+      "The Reserve Bank of India issues currency notes except the ₹1 note."
   }
 ];
 

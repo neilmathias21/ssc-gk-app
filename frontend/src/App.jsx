@@ -4,6 +4,8 @@ import Home from "./pages/Home/Home";
 import Practice from "./pages/Practice/Practice";
 import PracticeSession from "./pages/PracticeSession/PracticeSession";
 
+import PracticeSummaryPage from "./pages/PracticeSummary/PracticeSummary";
+
 import RandomPractice from "./pages/RandomPractice/RandomPractice";
 import SubjectPractice from "./pages/SubjectPractice/SubjectPractice";
 import ChapterPractice from "./pages/ChapterPractice/ChapterPractice";
@@ -34,6 +36,11 @@ function App() {
           <Route
               path="/practice/chapter"
               element={<ChapterPractice />}
+          />
+
+          <Route
+              path="/practice/summary"
+              element={<PracticeSummaryPage />}
           />
 
           <Route

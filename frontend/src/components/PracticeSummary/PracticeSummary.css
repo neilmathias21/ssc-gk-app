@@ -1,0 +1,80 @@
+.practice-summary {
+  max-width: 700px;
+  margin: auto;
+  background: white;
+  border: 1px solid #d9d9d9;
+  border-radius: 12px;
+  padding: 40px;
+}
+
+.summary-header {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.summary-header h2 {
+  margin-bottom: 10px;
+}
+
+.summary-header p {
+  color: #6b7280;
+}
+
+.summary-card {
+  border-top: 1px solid #eeeeee;
+  border-bottom: 1px solid #eeeeee;
+  padding: 20px 0;
+  margin-bottom: 30px;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 14px 0;
+}
+
+.summary-row:not(:last-child) {
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.summary-row span:first-child {
+  font-weight: 600;
+}
+
+.summary-row span:last-child {
+  color: #1f3a8a;
+}
+
+.question-limit {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 35px;
+}
+
+.question-limit label {
+  font-weight: 600;
+}
+
+.question-limit select {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  font-size: 1rem;
+}
+
+.start-button {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  background: #1f3a8a;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.start-button:hover {
+  background: #17306d;
+}
