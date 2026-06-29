@@ -4,47 +4,46 @@ import { useState } from "react";
 import { useLocation } from "react-router-dom";
 
 import QuestionCard from "../../components/QuestionCard/QuestionCard";
+import EmptyState from "../../components/EmptyState/EmptyState";
 
 function PracticeSession() {
   const location = useLocation();
 
-  const practice = location.state?.practice;
-
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
 
-if (!practice) {
-  return (
-    <div className="practice-container">
+  const practice = location.state?.practice;
 
-      <div className="no-session">
+  if (!practice) {
+    return (
+      <EmptyState
+        title="No Practice Session"
+        message="Start a practice session from the Practice menu."
+        buttonText="Return to Practice"
+      />
+    );
+  }
 
-        <h2>No Practice Session</h2>
-
-        <p>
-          Start a practice session from the Practice
-          menu.
-        </p>
-
-      </div>
-
-    </div>
-  );
-}
+  if (practice.empty) {
+    return (
+      <EmptyState
+        title={practice.title}
+        message={practice.message}
+        buttonText="Choose Another Option"
+      />
+    );
+  }
 
   const { title, questions } = practice;
 
   function nextQuestion() {
     if (currentQuestionIndex < questions.length - 1) {
-      setCurrentQuestionIndex(currentQuestionIndex + 1);
+      setCurrentQuestionIndex((previousIndex) => previousIndex + 1);
     }
   }
 
   return (
     <div className="practice-container">
-
-      <h1 className="practice-title">
-        {title}
-      </h1>
+      <h1 className="practice-title">{title}</h1>
 
       <QuestionCard
         key={questions[currentQuestionIndex].id}
@@ -52,11 +51,8 @@ if (!practice) {
         currentQuestion={currentQuestionIndex + 1}
         totalQuestions={questions.length}
         onNext={nextQuestion}
-        isLastQuestion={
-          currentQuestionIndex === questions.length - 1
-        }
+        isLastQuestion={currentQuestionIndex === questions.length - 1}
       />
-
     </div>
   );
 }

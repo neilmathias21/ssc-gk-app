@@ -2,7 +2,7 @@ const questions = [
   {
     id: 1,
     subject: "History",
-    chapter: "Modern History",
+    chapter: "Modern Indian History",
     question: "Who founded the Maurya Empire?",
     options: [
       "Ashoka",
@@ -34,7 +34,7 @@ const questions = [
   {
     id: 3,
     subject: "Polity",
-    chapter: "Constitution",
+    chapter: "Constitution Of India",
     question: "Who is known as the Father of the Indian Constitution?",
     options: [
       "Mahatma Gandhi",
@@ -49,7 +49,7 @@ const questions = [
 
   {
     id: 4,
-    subject: "Science",
+    subject: "General Science",
     chapter: "Physics",
     question: "What is the SI unit of Force?",
     options: [
@@ -66,7 +66,7 @@ const questions = [
   {
     id: 5,
     subject: "Economy",
-    chapter: "Banking",
+    chapter: "Money, Banking, & Monetary Policy",
     question: "Which institution issues currency notes in India?",
     options: [
       "SEBI",
