@@ -4,6 +4,56 @@ All notable changes to this project will be documented in this file.
 
 ---
 
+# Version 0.5.0 - Practice Session Configuration
+
+## Added
+
+### Practice Summary
+- Added a dedicated Practice Summary page.
+- Added a reusable Practice Summary component.
+- Added a configurable practice session workflow before starting questions.
+
+### Practice Configuration
+- Introduced a centralized `practiceConfig` object.
+- Added a reusable `defaultPracticeConfig`.
+- Refactored Random, Subject, and Chapter Practice to use a shared configuration model.
+
+### Question Limit
+- Added configurable question limit selection.
+- Supported options:
+  - 5 Questions
+  - 10 Questions
+  - 25 Questions
+  - 30 Questions
+  - 50 Questions
+  - All Questions
+- Updated Practice Session to respect the selected question limit.
+
+### Navigation
+- Added Practice Summary route.
+- Updated practice flow:
+
+  Practice Selection
+      ↓
+  Practice Summary
+      ↓
+  Start Practice
+      ↓
+  Practice Session
+
+### User Interface
+- Improved Practice Summary layout.
+- Added clearer session information.
+- Improved spacing and visual hierarchy.
+- Improved Start Practice workflow.
+
+### Architecture
+- Introduced a reusable practice configuration model.
+- Separated session configuration from session execution.
+- Improved scalability for future features such as timers, difficulty levels, and mock tests.
+
+---
+
 # Version 0.4.0 - Subject and Chapter Practice
 
 ## Added
