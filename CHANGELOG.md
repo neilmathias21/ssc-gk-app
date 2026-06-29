@@ -4,6 +4,29 @@ All notable changes to this project will be documented in this file.
 
 ---
 
+# Version 0.4.0 - Subject and Chapter Practice
+
+## Added
+
+### Practice Modes
+- Implemented fully functional Subject-wise Practice.
+- Implemented fully functional Chapter-wise Practice.
+- Added reusable question filtering utility.
+- Added dynamic practice session titles.
+
+### Components
+- Added reusable EmptyState component.
+
+### User Experience
+- Replaced browser alerts with friendly empty-state screens.
+- Improved navigation for empty practice sessions.
+
+### Architecture
+- Added generic question filtering utility for future practice modes.
+- Reused the same Practice Session for Random, Subject, and Chapter practice.
+
+---
+
 # Version 0.3.0 - Practice Mode Architecture
 
 ## Added
