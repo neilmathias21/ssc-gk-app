@@ -1,17 +1,25 @@
 import "./PracticeSession.css";
 
 import { useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 import QuestionCard from "../../components/QuestionCard/QuestionCard";
 import EmptyState from "../../components/EmptyState/EmptyState";
 
 function PracticeSession() {
   const location = useLocation();
+  const navigate = useNavigate();
 
   const practice = location.state?.practice ?? null;
 
-  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const [session, setSession] = useState(() => ({
+    currentQuestionIndex: 0,
+    correctAnswers: 0,
+    incorrectAnswers: 0,
+    skippedQuestions: 0,
+    selectedAnswers: [],
+    startTime: Date.now(),
+  }));
 
   if (!practice) {
     return (
@@ -37,6 +45,7 @@ function PracticeSession() {
     title,
     questions,
     questionLimit,
+    markingScheme,
   } = practice;
 
   const sessionQuestions =
@@ -44,13 +53,96 @@ function PracticeSession() {
       ? questions
       : questions.slice(0, questionLimit);
 
-  function nextQuestion() {
-    if (
-      currentQuestionIndex <
-      sessionQuestions.length - 1
-    ) {
-      setCurrentQuestionIndex((previousIndex) => previousIndex + 1);
+  function finishPractice(updatedSession) {
+    const questionsAttempted =
+      updatedSession.correctAnswers +
+      updatedSession.incorrectAnswers +
+      updatedSession.skippedQuestions;
+
+    const accuracy =
+      questionsAttempted === 0
+        ? 0
+        : (
+            (updatedSession.correctAnswers /
+              questionsAttempted) *
+            100
+          ).toFixed(2);
+
+    navigate("/results", {
+      state: {
+        results: {
+          correctAnswers: updatedSession.correctAnswers,
+          incorrectAnswers: updatedSession.incorrectAnswers,
+          skippedQuestions: updatedSession.skippedQuestions,
+          questionsAttempted,
+          accuracy,
+          markingScheme,
+        },
+      },
+    });
+  }
+
+  function onNextQuestion(updatedSession = session) {
+    const isLastQuestion =
+      updatedSession.currentQuestionIndex ===
+      sessionQuestions.length - 1;
+
+    if (isLastQuestion) {
+      finishPractice(updatedSession);
+      return;
     }
+
+    setSession({
+      ...updatedSession,
+      currentQuestionIndex:
+        updatedSession.currentQuestionIndex + 1,
+    });
+  }
+
+  function onAnswerSubmit(answer) {
+    const updatedSession = {
+      ...session,
+
+      selectedAnswers: [
+        ...session.selectedAnswers,
+        answer,
+      ],
+
+      correctAnswers:
+        session.correctAnswers +
+        (answer.correct ? 1 : 0),
+
+      incorrectAnswers:
+        session.incorrectAnswers +
+        (answer.correct ? 0 : 1),
+    };
+
+    setSession(updatedSession);
+  }
+
+  function onSkipQuestion() {
+    const updatedSession = {
+      ...session,
+
+      skippedQuestions:
+        session.skippedQuestions + 1,
+
+      selectedAnswers: [
+        ...session.selectedAnswers,
+        {
+          questionId:
+            sessionQuestions[
+              session.currentQuestionIndex
+            ].id,
+
+          selectedOption: null,
+
+          status: "skipped",
+        },
+      ],
+    };
+
+    onNextQuestion(updatedSession);
   }
 
   return (
@@ -60,13 +152,27 @@ function PracticeSession() {
       </h1>
 
       <QuestionCard
-        key={sessionQuestions[currentQuestionIndex].id}
-        question={sessionQuestions[currentQuestionIndex]}
-        currentQuestion={currentQuestionIndex + 1}
-        totalQuestions={sessionQuestions.length}
-        onNext={nextQuestion}
+        key={
+          sessionQuestions[
+            session.currentQuestionIndex
+          ].id
+        }
+        question={
+          sessionQuestions[
+            session.currentQuestionIndex
+          ]
+        }
+        currentQuestion={
+          session.currentQuestionIndex + 1
+        }
+        totalQuestions={
+          sessionQuestions.length
+        }
+        onAnswerSubmit={onAnswerSubmit}
+        onNextQuestion={onNextQuestion}
+        onSkipQuestion={onSkipQuestion}
         isLastQuestion={
-          currentQuestionIndex ===
+          session.currentQuestionIndex ===
           sessionQuestions.length - 1
         }
       />

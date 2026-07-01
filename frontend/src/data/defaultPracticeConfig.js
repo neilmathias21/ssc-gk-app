@@ -1,13 +1,21 @@
 const defaultPracticeConfig = {
   title: "",
   mode: "",
+
   subject: "",
   chapter: "",
+
   questions: [],
   totalQuestions: 0,
+
   shuffle: false,
-  timer: null,
+
   questionLimit: 0,
+
+  markingScheme: {
+    correct: 2,
+    incorrect: -0.5,
+  },
 };
 
 export default defaultPracticeConfig;

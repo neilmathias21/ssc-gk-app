@@ -107,3 +107,26 @@
   margin-top: 15px;
   font-weight: bold;
 }
+
+.question-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.question-actions button {
+  flex: 1;
+}
+
+.skip-button {
+  padding: 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background: white;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.skip-button:hover {
+  background: #f3f4f6;
+}

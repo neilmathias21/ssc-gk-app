@@ -10,6 +10,8 @@ import RandomPractice from "./pages/RandomPractice/RandomPractice";
 import SubjectPractice from "./pages/SubjectPractice/SubjectPractice";
 import ChapterPractice from "./pages/ChapterPractice/ChapterPractice";
 
+import Results from "./pages/Results/Results";
+
 //import NotFound from "./pages/NotFound/NotFound";
 
 import Layout from "./components/Layout/Layout";
@@ -46,6 +48,11 @@ function App() {
           <Route
               path="/practice/session"
               element={<PracticeSession />}
+          />
+
+          <Route
+            path="/results"
+            element={<Results />}
           />
         </Routes>
       </Layout>

@@ -1,13 +1,15 @@
 import "./QuestionCard.css";
 import { useState } from "react";
 
-import OptionButton from "../OptionButton/OptionButton";;
+import OptionButton from "../OptionButton/OptionButton";
 
 function QuestionCard({
   question,
   currentQuestion,
   totalQuestions,
-  onNext,
+  onAnswerSubmit,
+  onNextQuestion,
+  onSkipQuestion,
   isLastQuestion,
 }) {
   const [selectedOption, setSelectedOption] = useState(null);
@@ -24,57 +26,72 @@ function QuestionCard({
     }
 
     setError("");
+
     setSubmitted(true);
+
+    onAnswerSubmit({
+      questionId: question.id,
+
+      selectedOption,
+
+      correct:
+        selectedOption ===
+        question.correctOption,
+
+      status:
+        selectedOption === question.correctOption
+          ? "correct"
+          : "incorrect",
+    });
   }
 
   return (
     <div className="question-card">
-        <div className="question-header">
+      <div className="question-header">
 
-            <div className="question-info">
+        <div className="question-info">
 
-                <span className="subject">
-                {question.subject}
-                </span>
+          <span className="subject">
+            {question.subject}
+          </span>
 
-                <span className="separator">
-                •
-                </span>
+          <span className="separator">
+            •
+          </span>
 
-                <span className="chapter">
-                {question.chapter}
-                </span>
-
-            </div>
-
-            <div className="question-number">
-
-                Question {currentQuestion} of {totalQuestions}
-
-            </div>
+          <span className="chapter">
+            {question.chapter}
+          </span>
 
         </div>
+
+        <div className="question-number">
+          Question {currentQuestion} of {totalQuestions}
+        </div>
+
+      </div>
+
       <h2>{question.question}</h2>
 
       <div className="options">
         {question.options.map((option, index) => (
-            <OptionButton
-                key={index}
-                option={option}
-                selected={selectedOption === index}
-                disabled={submitted}
-                onClick={() => setSelectedOption(index)}
-                isCorrect={
-                submitted &&
-                index === question.correctOption
-                }
-                isWrong={
-                submitted &&
-                selectedOption === index &&
-                index !== question.correctOption
-                }
-            />
-            ))}
+          <OptionButton
+            key={index}
+            option={option}
+            selected={selectedOption === index}
+            disabled={submitted}
+            onClick={() => setSelectedOption(index)}
+            isCorrect={
+              submitted &&
+              index === question.correctOption
+            }
+            isWrong={
+              submitted &&
+              selectedOption === index &&
+              index !== question.correctOption
+            }
+          />
+        ))}
       </div>
 
       {error && (
@@ -84,12 +101,25 @@ function QuestionCard({
       )}
 
       {!submitted ? (
-        <button
-          className="submit-button"
-          onClick={handleSubmit}
-        >
-          Submit Answer
-        </button>
+        <div className="question-actions">
+
+          <button
+            className="skip-button"
+            onClick={onSkipQuestion}
+          >
+            {isLastQuestion
+              ? "Skip & Finish"
+              : "Skip Question"}
+          </button>
+
+          <button
+            className="submit-button"
+            onClick={handleSubmit}
+          >
+            Submit Answer
+          </button>
+
+        </div>
       ) : (
         <>
           <div
@@ -110,21 +140,14 @@ function QuestionCard({
             <p>{question.explanation}</p>
           </div>
 
-          {!isLastQuestion ? (
-            <button
-              className="next-button"
-              onClick={onNext}
-            >
-              Next Question
-            </button>
-          ) : (
-            <button
-              className="next-button"
-              disabled
-            >
-              End of Practice
-            </button>
-          )}
+          <button
+            className="next-button"
+            onClick={() => onNextQuestion()}
+          >
+            {isLastQuestion
+              ? "Finish Practice"
+              : "Next Question"}
+          </button>
         </>
       )}
     </div>
