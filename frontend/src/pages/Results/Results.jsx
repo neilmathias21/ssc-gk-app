@@ -8,9 +8,11 @@ function Results() {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const results = location.state?.results;
+  const completedSession = location.state?.session;
 
-  if (!results) {
+  const results = completedSession?.results;
+
+  if (!completedSession) {
     return (
       <EmptyState
         title="No Results Available"
@@ -105,8 +107,14 @@ function Results() {
       <div className="results-actions">
 
         <button
-          className="results-button secondary-button"
-          disabled
+          className="results-button"
+          onClick={() =>
+            navigate("/review", {
+              state: {
+                session: completedSession,
+              },
+            })
+          }
         >
           Review Answers
         </button>

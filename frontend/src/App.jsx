@@ -12,7 +12,7 @@ import ChapterPractice from "./pages/ChapterPractice/ChapterPractice";
 
 import Results from "./pages/Results/Results";
 
-//import NotFound from "./pages/NotFound/NotFound";
+import ReviewAnswers from "./pages/ReviewAnswers/ReviewAnswers";
 
 import Layout from "./components/Layout/Layout";
 
@@ -53,6 +53,11 @@ function App() {
           <Route
             path="/results"
             element={<Results />}
+          />
+
+          <Route
+            path="/review"
+            element={<ReviewAnswers />}
           />
         </Routes>
       </Layout>

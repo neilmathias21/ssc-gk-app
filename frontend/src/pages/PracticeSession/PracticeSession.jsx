@@ -68,16 +68,44 @@ function PracticeSession() {
             100
           ).toFixed(2);
 
+    const completedSession = {
+      results: {
+        correctAnswers: updatedSession.correctAnswers,
+
+        incorrectAnswers:
+          updatedSession.incorrectAnswers,
+
+        skippedQuestions:
+          updatedSession.skippedQuestions,
+
+        questionsAttempted,
+
+        accuracy,
+
+        markingScheme,
+      },
+
+      questions: sessionQuestions,
+
+      selectedAnswers:
+        updatedSession.selectedAnswers,
+
+      practiceConfig: {
+        title,
+
+        mode: practice.mode,
+
+        subject: practice.subject,
+
+        chapter: practice.chapter,
+
+        questionLimit,
+      },
+    };
+
     navigate("/results", {
       state: {
-        results: {
-          correctAnswers: updatedSession.correctAnswers,
-          incorrectAnswers: updatedSession.incorrectAnswers,
-          skippedQuestions: updatedSession.skippedQuestions,
-          questionsAttempted,
-          accuracy,
-          markingScheme,
-        },
+        session: completedSession,
       },
     });
   }
