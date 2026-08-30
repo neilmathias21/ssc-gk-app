@@ -59,11 +59,19 @@ Read Notes → Practice Questions → Analyze Mistakes → Revise → Mock Test 
 - Session statistics
 
 ## Version 0.6
+- Practice Session
+- Results
 - Review Answers
 - Timed Practice
-- Auto Submit
-- Countdown Timer
-- Review Navigation
+- Retry Practice
+
+## Version 0.7
+
+- Bookmarks
+- Wrong Question Bank
+- Unattempted Questions
+- Search Questions
+- Performance Dashboard
 
 ---
 

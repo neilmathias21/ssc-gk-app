@@ -38,6 +38,11 @@ A personal web application for preparing for SSC, Railway, Banking, and other co
 - Previous / Next navigation
 - Progress indicator
 
+### Retry
+- Retry the same practice session
+- Preserves practice configuration
+- Restarts timer
+
 ## Tech Stack
 
 ### Frontend
@@ -69,14 +74,14 @@ SSC-GK-App/
 
 ## Status
 
-Version 0.6.0 in active development.
-
-Completed:
+Completed
 - Practice Module
 - Results System
 - Review Answers
 - Timed Practice
-
-In Progress:
 - Retry Practice
-- Live Statistics
+
+Next Version
+- Bookmarks
+- Wrong Question Bank
+- Search Questions

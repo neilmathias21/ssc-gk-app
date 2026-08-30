@@ -160,6 +160,8 @@ function PracticeSession() {
 
         questionLimit,
       },
+
+      originalPractice: practice,
     };
 
     navigate("/results", {

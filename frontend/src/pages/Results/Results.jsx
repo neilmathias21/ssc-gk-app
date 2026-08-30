@@ -170,7 +170,13 @@ function Results() {
 
         <button
           className="results-button secondary-button"
-          disabled
+          onClick={() =>
+            navigate("/practice/session", {
+              state: {
+                practice: completedSession.originalPractice
+              },
+            })
+          }
         >
           Retry Practice
         </button>
