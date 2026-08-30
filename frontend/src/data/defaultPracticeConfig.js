@@ -16,6 +16,11 @@ const defaultPracticeConfig = {
     correct: 2,
     incorrect: -0.5,
   },
+
+  timer: {
+    enabled: false,
+    duration: 0,
+  },
 };
 
 export default defaultPracticeConfig;

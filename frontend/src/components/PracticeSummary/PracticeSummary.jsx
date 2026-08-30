@@ -1,5 +1,14 @@
 import "./PracticeSummary.css";
 
+const TIMER_OPTIONS = [
+  { label: "No Timer", value: 0 },
+  { label: "5 Minutes", value: 35 },
+  { label: "10 Minutes", value: 600 },
+  { label: "15 Minutes", value: 900 },
+  { label: "30 Minutes", value: 1800 },
+  { label: "60 Minutes", value: 3600 },
+];
+
 function PracticeSummary({
   config,
   setConfig,
@@ -14,6 +23,19 @@ function PracticeSummary({
         value === "all"
           ? config.totalQuestions
           : Number(value),
+    });
+  }
+
+  function handleTimerChange(event) {
+    const duration = Number(event.target.value);
+
+    setConfig({
+      ...config,
+
+      timer: {
+        enabled: duration > 0,
+        duration,
+      },
     });
   }
 
@@ -81,6 +103,29 @@ function PracticeSummary({
           <option value="all">
             All Questions
           </option>
+        </select>
+
+      </div>
+
+      <div className="question-limit">
+
+        <label htmlFor="timer">
+          Time Limit
+        </label>
+
+        <select
+          id="timer"
+          value={config.timer.duration}
+          onChange={handleTimerChange}
+        >
+          {TIMER_OPTIONS.map((option) => (
+            <option
+              key={option.value}
+              value={option.value}
+            >
+              {option.label}
+            </option>
+          ))}
         </select>
 
       </div>

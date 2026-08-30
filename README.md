@@ -4,23 +4,59 @@ A personal web application for preparing for SSC, Railway, Banking, and other co
 
 ## Features
 
-- Practice Mode (Random MCQs)
+### Practice
+
+- Random Practice
+- Subject-wise Practice
+- Chapter-wise Practice
+- Configurable question limits
+- Question skipping
+
+### Practice Session
+
 - Instant answer checking
 - Detailed explanations
-- Mock Tests (25 questions, 15-minute timer)
-- Bookmarks
-- Wrong Question Bank
-- Statistics Dashboard
-- Search Questions
-- Course Notes
+- Government exam style negative marking
+- Progress tracking
+- Configurable timer
+- Automatic submission
+
+### Results
+
+- Accuracy calculation
+- Marks obtained
+- Negative marks
+- Final score
+- Time taken
+- Submission status
+
+### Review
+
+- Review every question
+- Correct answer display
+- Explanation review
+- Previous / Next navigation
+- Progress indicator
 
 ## Tech Stack
 
+### Frontend
+
 - React
+- React Router
+- Vite
+- CSS
+
+### Backend (Planned)
+
 - Node.js
 - Express
 - SQLite
-- Git & GitHub
+
+### Version Control
+
+- Git
+- GitHub
 
 ## Project Structure
 
@@ -33,4 +69,14 @@ SSC-GK-App/
 
 ## Status
 
-🚧 Currently under development.
+Version 0.6.0 in active development.
+
+Completed:
+- Practice Module
+- Results System
+- Review Answers
+- Timed Practice
+
+In Progress:
+- Retry Practice
+- Live Statistics

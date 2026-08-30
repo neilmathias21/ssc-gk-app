@@ -4,6 +4,23 @@ import { useLocation, useNavigate } from "react-router-dom";
 
 import EmptyState from "../../components/EmptyState/EmptyState";
 
+function formatDuration(seconds) {
+    if (seconds === null) {
+        return "—";
+    }
+
+    const minutes = Math.floor(seconds / 60);
+
+    const remainingSeconds = seconds % 60;
+
+    return `${String(minutes).padStart(
+        2,
+        "0"
+    )}:${String(
+        remainingSeconds
+    ).padStart(2, "0")}`;
+}
+
 function Results() {
   const location = useLocation();
   const navigate = useNavigate();
@@ -23,12 +40,20 @@ function Results() {
   }
 
   const {
-    questionsAttempted,
-    correctAnswers,
-    incorrectAnswers,
-    skippedQuestions,
-    accuracy,
-    markingScheme,
+      questionsAttempted,
+      correctAnswers,
+      incorrectAnswers,
+      skippedQuestions,
+      accuracy,
+      markingScheme,
+
+      timeAllowed,
+
+      timeTaken,
+
+      submissionType,
+
+      totalQuestions,
   } = results;
 
   const marksObtained =
@@ -43,7 +68,7 @@ function Results() {
     marksObtained - negativeMarks;
 
   const maximumMarks =
-    questionsAttempted *
+    totalQuestions *
     markingScheme.correct;
 
   return (
@@ -79,6 +104,30 @@ function Results() {
         <div className="result-row">
           <span>Accuracy</span>
           <span>{accuracy}%</span>
+        </div>
+
+        <div className="result-row">
+            <span>Time Allowed</span>
+
+            <span>
+                {timeAllowed === null
+                    ? "No Timer"
+                    : formatDuration(timeAllowed)}
+            </span>
+        </div>
+
+        <div className="result-row">
+            <span>Time Taken</span>
+
+            <span>
+                {formatDuration(timeTaken)}
+            </span>
+        </div>
+
+        <div className="result-row">
+            <span>Submission</span>
+
+            <span>{submissionType}</span>
         </div>
 
         <div className="result-row">

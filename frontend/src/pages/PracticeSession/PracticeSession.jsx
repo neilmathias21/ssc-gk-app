@@ -1,6 +1,6 @@
 import "./PracticeSession.css";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
 import QuestionCard from "../../components/QuestionCard/QuestionCard";
@@ -12,6 +12,13 @@ function PracticeSession() {
 
   const practice = location.state?.practice ?? null;
 
+  const [timeRemaining, setTimeRemaining] = useState(
+    practice?.timer?.duration ?? 0
+  );
+
+  const [sessionFinished, setSessionFinished] =
+  useState(false);
+
   const [session, setSession] = useState(() => ({
     currentQuestionIndex: 0,
     correctAnswers: 0,
@@ -20,6 +27,37 @@ function PracticeSession() {
     selectedAnswers: [],
     startTime: Date.now(),
   }));
+
+  useEffect(() => {
+    if (!practice?.timer?.enabled) {
+      return;
+    }
+
+    const interval = setInterval(() => {
+      setTimeRemaining((previousTime) => {
+        if (previousTime <= 1) {
+          clearInterval(interval);
+          return 0;
+        }
+
+        return previousTime - 1;
+      });
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [practice]);
+
+  useEffect(() => {
+    if (!practice?.timer?.enabled) {
+      return;
+    }
+
+    if (timeRemaining > 0) {
+      return;
+    }
+
+    finishPractice(session);
+  }, [timeRemaining]);
 
   if (!practice) {
     return (
@@ -54,10 +92,15 @@ function PracticeSession() {
       : questions.slice(0, questionLimit);
 
   function finishPractice(updatedSession) {
+    if (sessionFinished) {
+      return;
+    }
+
+    setSessionFinished(true);
+
     const questionsAttempted =
       updatedSession.correctAnswers +
-      updatedSession.incorrectAnswers +
-      updatedSession.skippedQuestions;
+      updatedSession.incorrectAnswers;
 
     const accuracy =
       questionsAttempted === 0
@@ -70,19 +113,35 @@ function PracticeSession() {
 
     const completedSession = {
       results: {
-        correctAnswers: updatedSession.correctAnswers,
+          correctAnswers: updatedSession.correctAnswers,
 
-        incorrectAnswers:
-          updatedSession.incorrectAnswers,
+          incorrectAnswers:
+              updatedSession.incorrectAnswers,
 
-        skippedQuestions:
-          updatedSession.skippedQuestions,
+          skippedQuestions:
+              updatedSession.skippedQuestions,
 
-        questionsAttempted,
+          questionsAttempted,
 
-        accuracy,
+          totalQuestions: sessionQuestions.length,
 
-        markingScheme,
+          accuracy,
+
+          markingScheme,
+
+          timeAllowed:
+              practice.timer.duration,
+
+          timeTaken:
+              practice.timer.enabled
+                  ? practice.timer.duration - timeRemaining
+                  : null,
+
+          submissionType:
+              practice.timer.enabled &&
+              timeRemaining === 0
+                  ? "Auto Submitted"
+                  : "Completed",
       },
 
       questions: sessionQuestions,
@@ -173,11 +232,32 @@ function PracticeSession() {
     onNextQuestion(updatedSession);
   }
 
+  function formatTime(seconds) {
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = seconds % 60;
+
+    return `${String(minutes).padStart(2, "0")}:${String(
+      remainingSeconds
+    ).padStart(2, "0")}`;
+  }
+
   return (
     <div className="practice-container">
       <h1 className="practice-title">
         {title}
       </h1>
+
+      {practice.timer.enabled && (
+        <div
+          className={`timer-container ${
+            timeRemaining <= 30
+              ? "timer-warning"
+              : ""
+          }`}
+        >
+          ⏱ {formatTime(timeRemaining)}
+        </div>
+      )}
 
       <QuestionCard
         key={

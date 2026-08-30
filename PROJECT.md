@@ -2,7 +2,7 @@
 
 # SSC GK Learning App
 
-**Version:** 0.1.0
+**Version:** 0.6.0
 
 **Status:** In Development
 
@@ -30,119 +30,40 @@ Read Notes → Practice Questions → Analyze Mistakes → Revise → Mock Test 
 # Version Roadmap
 
 ## Version 0.1
-
-### Goal
-
-Build the first working prototype.
-
-### Features
-
-* Project setup
-* React + Vite
-* Home page
-* Practice page
-* Display one hardcoded question
-* Answer checking
-* Explanation
-* Next question
-
----
+- Project foundation
+- React + Vite
+- Home page
+- Dashboard
 
 ## Version 0.2
-
-### Goal
-
-Introduce navigation and subject-wise practice.
-
-### Features
-
-* React Router
-* Subject selection
-* Chapter selection
-* Random questions
-* Question counter
-
----
+- Practice module
+- Question cards
+- Answer validation
+- Navigation
 
 ## Version 0.3
-
-### Goal
-
-Build the testing system.
-
-### Features
-
-* Mock tests
-* 25-question test
-* Timer
-* Score calculation
-* Results page
-* Review answers
-
----
+- Practice architecture
+- Subject practice
+- Chapter practice
+- Random practice
 
 ## Version 0.4
-
-### Goal
-
-Backend integration.
-
-### Features
-
-* Express API
-* SQLite database
-* Load questions from database
-* Random question API
-
----
+- Reusable practice flow
+- Practice configuration
+- Practice summary
 
 ## Version 0.5
-
-### Goal
-
-Personalized learning.
-
-### Features
-
-* Bookmarks
-* Wrong Question Bank
-* Unattempted Questions
-* Revision Queue
-
----
+- Practice session
+- Results
+- Negative marking
+- Session statistics
 
 ## Version 0.6
-
-### Goal
-
-Analytics.
-
-### Features
-
-* Dashboard
-* Statistics
-* Subject accuracy
-* Chapter accuracy
-* Daily progress
-
----
-
-## Version 1.0
-
-### Goal
-
-Complete Offline Learning Platform.
-
-### Features
-
-* Study Module
-* Practice Module
-* Mock Tests
-* Statistics
-* Notes
-* Search
-* Settings
-* Offline database
+- Review Answers
+- Timed Practice
+- Auto Submit
+- Countdown Timer
+- Review Navigation
 
 ---
 
@@ -265,5 +186,5 @@ Dashboard
 
 # Current Milestone
 
-**Version:** 0.1
+**Version:** 0.6.0
 

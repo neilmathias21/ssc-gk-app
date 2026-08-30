@@ -1,6 +1,56 @@
 # Changelog
 
 All notable changes to this project will be documented in this file.
+---
+
+# Version 0.6.0 - Practice Session Enhancements
+
+## Added
+
+### Practice Session
+
+- Added session state management.
+- Added configurable marking scheme.
+- Added support for negative marking.
+- Added configurable question limits.
+- Added question skipping.
+- Improved session tracking.
+
+### Results
+
+- Added dedicated Results page.
+- Added accuracy calculation.
+- Added marks obtained.
+- Added negative marks calculation.
+- Added final score calculation.
+- Added time allowed display.
+- Added time taken display.
+- Added submission status (Completed / Auto Submitted).
+
+### Review Answers
+
+- Added Review Answers page.
+- Added reusable ReviewCard component.
+- Added Previous / Next navigation.
+- Displayed user answer.
+- Displayed correct answer.
+- Displayed explanations.
+- Added progress bar.
+- Added status badges (Correct / Incorrect / Skipped).
+
+### Timed Practice
+
+- Added configurable timer.
+- Added countdown timer.
+- Added low-time warning.
+- Added automatic submission on timeout.
+
+### Architecture
+
+- Improved session management.
+- Extended `practiceConfig` with timer configuration.
+- Improved routing between Practice Session, Results and Review.
+- Added reusable review architecture.
 
 ---
 
