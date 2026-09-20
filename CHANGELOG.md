@@ -3,6 +3,57 @@
 All notable changes to this project will be documented in this file.
 ---
 
+# Version 0.7.0 - Bookmark System (In Progress)
+
+## Added
+
+### Bookmark System
+
+- Added bookmark storage using local storage.
+- Added reusable bookmark collection utilities.
+- Added bookmark metadata (subject, chapter, bookmark date).
+- Added bookmark management architecture.
+
+### Bookmarks
+
+- Added dedicated Bookmarks page.
+- Added searchable bookmark list.
+- Added subject filtering.
+- Added chapter filtering.
+- Added sorting by newest and oldest.
+- Added bookmark dates.
+- Added dashboard navigation.
+
+### Question Viewer
+
+- Added dedicated read-only Question Viewer.
+- Added correct answer highlighting.
+- Added correct answer display.
+- Added explanation display.
+- Added navigation back to Bookmarks.
+
+### Bookmark Management
+
+- Added remove bookmark action.
+- Added remove bookmark confirmation dialog.
+- Added automatic bookmark list refresh after deletion.
+
+### User Interface
+
+- Added Dashboard button to Practice page.
+- Added Dashboard button to Practice Session.
+- Added Dashboard button to Bookmarks.
+- Added Leave Practice confirmation dialog.
+
+### Architecture
+
+- Added `storageKeys.js`.
+- Added reusable bookmark collection helpers.
+- Added reusable `BookmarkListItem` component.
+- Introduced reusable architecture for future Wrong Questions and Unattempted Questions pages.
+
+---
+
 # Version 0.6.0 - Practice Session Enhancements
 
 ## Added
