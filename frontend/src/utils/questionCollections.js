@@ -24,14 +24,20 @@ export function addBookmark(question) {
   const bookmarks = getBookmarks();
 
   const alreadyExists = bookmarks.some(
-    (bookmark) => bookmark.id === question.id
+    (bookmark) =>
+      bookmark.questionId === question.id
   );
 
   if (alreadyExists) {
     return;
   }
 
-  bookmarks.push(question);
+  bookmarks.push({
+    questionId: question.id,
+    subject: question.subject,
+    chapter: question.chapter,
+    bookmarkedAt: new Date().toISOString(),
+  });
 
   saveCollection(
     STORAGE_KEYS.BOOKMARKS,
@@ -43,7 +49,8 @@ export function removeBookmark(questionId) {
   const bookmarks = getBookmarks();
 
   const updatedBookmarks = bookmarks.filter(
-    (bookmark) => bookmark.id !== questionId
+    (bookmark) =>
+      bookmark.questionId !== questionId
   );
 
   saveCollection(
@@ -52,9 +59,13 @@ export function removeBookmark(questionId) {
   );
 }
 
-export function isBookmarked(questionId) {
+export function isBookmarked(
+  questionId
+) {
   return getBookmarks().some(
-    (bookmark) => bookmark.id === questionId
+    (bookmark) =>
+      bookmark.questionId ===
+      questionId
   );
 }
 
@@ -157,5 +168,20 @@ export function removeUnattemptedQuestion(
   saveCollection(
     STORAGE_KEYS.UNATTEMPTED,
     updatedUnattemptedQuestions
+  );
+}
+
+
+export function getBookmarkedQuestionIds() {
+  return getBookmarks().map(
+    (bookmark) => bookmark.questionId
+  );
+}
+
+
+export function getBookmark(questionId) {
+  return getBookmarks().find(
+    (bookmark) =>
+      bookmark.questionId === questionId
   );
 }

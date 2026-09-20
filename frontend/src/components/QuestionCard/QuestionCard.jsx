@@ -3,6 +3,8 @@ import { useState } from "react";
 
 import OptionButton from "../OptionButton/OptionButton";
 
+import BookmarkButton from "../BookmarkButton/BookmarkButton";
+
 function QuestionCard({
   question,
   currentQuestion,
@@ -71,7 +73,16 @@ function QuestionCard({
 
       </div>
 
-      <h2>{question.question}</h2>
+      
+
+      <div className="question-title-row">
+
+        <h2>{question.question}</h2>
+        <BookmarkButton
+          question={question}
+        />
+
+      </div>
 
       <div className="options">
         {question.options.map((option, index) => (

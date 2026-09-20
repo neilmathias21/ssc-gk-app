@@ -1,0 +1,55 @@
+.bookmark-list-item {
+  width: 100%;
+
+  padding: 16px 20px;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+
+  background: white;
+
+  cursor: pointer;
+
+  transition: background-color 0.2s;
+}
+
+.bookmark-list-item:hover {
+  background: #f9fafb;
+}
+
+.bookmark-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.bookmark-title {
+  text-align: left;
+  flex: 1;
+  font-weight: 500;
+}
+
+.bookmark-date {
+  color: #6b7280;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.bookmark-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.delete-bookmark-button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+
+  font-size: 1.1rem;
+}
+
+.delete-bookmark-button:hover {
+  transform: scale(1.1);
+}

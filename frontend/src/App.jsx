@@ -16,6 +16,9 @@ import ReviewAnswers from "./pages/ReviewAnswers/ReviewAnswers";
 
 import Layout from "./components/Layout/Layout";
 
+import Bookmarks from "./pages/Bookmarks/Bookmarks";
+import QuestionViewer from "./pages/QuestionViewer/QuestionViewer";
+
 function App() {
   return (
     <BrowserRouter>
@@ -58,6 +61,16 @@ function App() {
           <Route
             path="/review"
             element={<ReviewAnswers />}
+          />
+
+          <Route
+            path="/bookmarks"
+            element={<Bookmarks />}
+          />
+
+          <Route
+            path="/bookmarks/:questionId"
+            element={<QuestionViewer />}
           />
         </Routes>
       </Layout>

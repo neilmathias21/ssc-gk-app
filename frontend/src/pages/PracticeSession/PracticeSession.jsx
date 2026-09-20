@@ -19,6 +19,9 @@ function PracticeSession() {
   const [sessionFinished, setSessionFinished] =
   useState(false);
 
+  const [showLeaveDialog, setShowLeaveDialog] =
+  useState(false);
+
   const [session, setSession] = useState(() => ({
     currentQuestionIndex: 0,
     correctAnswers: 0,
@@ -245,6 +248,16 @@ function PracticeSession() {
 
   return (
     <div className="practice-container">
+
+      <div className="practice-header">
+        <button
+          className="dashboard-button"
+          onClick={() => setShowLeaveDialog(true)}
+        >
+          🏠 Dashboard
+        </button>
+      </div>
+
       <h1 className="practice-title">
         {title}
       </h1>
@@ -286,6 +299,38 @@ function PracticeSession() {
           sessionQuestions.length - 1
         }
       />
+
+      {showLeaveDialog && (
+        <div className="dialog-overlay">
+          <div className="dialog-box">
+            <h3>Leave Practice?</h3>
+
+            <p>
+              Your current progress will be lost.
+            </p>
+
+            <div className="dialog-buttons">
+
+              <button
+                className="cancel-button"
+                onClick={() =>
+                  setShowLeaveDialog(false)
+                }
+              >
+                Cancel
+              </button>
+
+              <button
+                className="leave-button"
+                onClick={() => navigate("/")}
+              >
+                Leave
+              </button>
+
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
